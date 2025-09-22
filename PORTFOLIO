@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sanjay Kumar Gupta — Portfolio</title>
+  <meta name="description" content="Portfolio — Sanjay Kumar Gupta | ECE student, IoT & VLSI projects" />
+  <style>
+    /* Reset & base */
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#7dd3fc; --glass: rgba(255,255,255,0.03);
+      --radius:16px; --pad:20px; --max:1100px;
+      --ff-sans: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:var(--ff-sans); background:linear-gradient(180deg,#071124 0%, var(--bg) 100%); color:#e6eef6;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; line-height:1.5;
+    }
+    .wrap{max-width:var(--max); margin:40px auto; padding:24px;}
+
+    /* Header */
+    header{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:28px}
+    .brand{display:flex; align-items:center; gap:12px}
+    .logo{width:56px; height:56px; border-radius:12px; background:linear-gradient(135deg,var(--accent),#60a5fa); display:flex; align-items:center; justify-content:center; color:#052026; font-weight:700}
+    nav a{color:var(--muted); text-decoration:none; margin-left:18px; font-weight:600}
+    nav a:hover{color:var(--accent)}
+
+    /* Hero */
+    .hero{display:grid; grid-template-columns:1fr 380px; gap:28px; align-items:center;}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); border-radius:var(--radius); padding:var(--pad); box-shadow:0 6px 18px rgba(2,6,23,0.6);}
+    h1{font-size:clamp(28px,4vw,40px); margin:0 0 8px}
+    p.lead{color:var(--muted); margin:0 0 18px}
+    .cta{display:inline-block; background:var(--accent); color:#052026; padding:10px 14px; border-radius:10px; font-weight:700; text-decoration:none}
+
+    /* Skills & badges */
+    .badges{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
+    .badge{background:var(--glass); padding:8px 10px; border-radius:999px; color:var(--muted); font-weight:600}
+
+    /* Projects grid */
+    .projects{display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:22px}
+    .proj{padding:16px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent); transition:transform .28s ease, box-shadow .28s ease}
+    .proj:hover{transform:translateY(-6px); box-shadow:0 18px 40px rgba(13,20,32,0.6)}
+    .proj h3{margin:0 0 8px}
+    .meta{color:var(--muted); font-size:13px}
+    .tags{margin-top:10px; display:flex; gap:8px; flex-wrap:wrap}
+    .tag{font-size:12px; padding:6px 8px; border-radius:8px; background:rgba(255,255,255,0.02); color:var(--muted)}
+
+    /* Resume & contact */
+    aside .card{position:sticky; top:28px}
+    .contact form{display:flex; flex-direction:column; gap:12px}
+    input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.06); padding:10px;border-radius:8px;color:inherit}
+    button{background:transparent;border:1px solid var(--accent); padding:10px;border-radius:10px;color:var(--accent); font-weight:700}
+    button:hover{background:var(--accent); color:#052026}
+
+    /* Footer */
+    footer{text-align:center; color:var(--muted); margin-top:34px}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .projects{grid-template-columns:1fr}
+      nav a{margin-left:12px}
+    }
+
+    /* Smooth scroll */
+    html{scroll-behavior:smooth}
+
+    /* Simple entrance animation */
+    .reveal{opacity:0; transform:translateY(8px); animation:enter .6s forwards}
+    .reveal.delay{animation-delay:.12s}
+    @keyframes enter{to{opacity:1; transform:none}}
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">SG</div>
+        <div>
+          <div style="font-weight:700">Sanjay Kumar Gupta</div>
+          <div style="font-size:13px;color:var(--muted)">B.Tech ECE — IoT & VLSI</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="card reveal">
+        <h1>Hi — I build IoT stuff & tinker with VLSI</h1>
+        <p class="lead">ECE undergrad at KIET. I design embedded systems, prototypes with ESP8266, and work on VLSI flows using Cadence. Looking for internships & collabs.</p>
+        <a class="cta" href="#contact">Let's talk — hire me</a>
+
+        <div style="margin-top:18px">
+          <div style="font-weight:700; margin-bottom:8px">Core strengths</div>
+          <div class="badges">
+            <div class="badge">C & Data Structures</div>
+            <div class="badge">Python (Colab)</div>
+            <div class="badge">Embedded C / Arduino</div>
+            <div class="badge">ESP8266 / IoT</div>
+            <div class="badge">Cadence / VLSI</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="card reveal delay">
+        <h3 style="margin-top:0">Resume</h3>
+        <p class="meta">Compact resume & quick contacts</p>
+        <p style="margin-top:12px">CGPA • Skills • Projects • Contact</p>
+        <a class="cta" href="#contact" style="display:inline-block; margin-top:12px">Download (PDF)</a>
+      </aside>
+    </section>
+
+    <section id="projects" style="margin-top:26px">
+      <h2>Projects</h2>
+      <div class="projects">
+        <article class="proj">
+          <h3>IoT Smart Dustbin</h3>
+          <div class="meta">ESP8266 • Ultrasonic sensor • Servo • MQTT</div>
+          <p>Automatic lid control with fill-level monitoring, push notifications and web dashboard.</p>
+          <div class="tags"><span class="tag">Embedded</span><span class="tag">IoT</span><span class="tag">Hardware</span></div>
+        </article>
+
+        <article class="proj">
+          <h3>VLSI Flow: RTL to GDS</h3>
+          <div class="meta">Verilog • Cadence • Synthesis & Place-&-Route</div>
+          <p>Designed a synthesizable IP core, ran timing analysis and generated GDS flow for fabrication-readiness.</p>
+          <div class="tags"><span class="tag">VLSI</span><span class="tag">Cadence</span><span class="tag">Digital Design</span></div>
+        </article>
+
+        <article class="proj">
+          <h3>Arduino Sensor Suite</h3>
+          <div class="meta">Arduino IDE • C • Sensors</div>
+          <p>Multi-sensor data acquisition with serial logging and visualization via Python.</p>
+          <div class="tags"><span class="tag">Firmware</span><span class="tag">Data</span></div>
+        </article>
+
+        <article class="proj">
+          <h3>Mini Capstone: Automation</h3>
+          <div class="meta">MATLAB • Controls • Prototype</div>
+          <p>Control-systems project with MATLAB simulations and hardware-in-loop testing.</p>
+          <div class="tags"><span class="tag">Controls</span><span class="tag">MATLAB</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" style="margin-top:26px">
+      <h2>Skills</h2>
+      <div class="card reveal">
+        <ul style="margin:0 0 0 18px; color:var(--muted)">
+          <li>C, Data Structures, Algorithms</li>
+          <li>Embedded C, Arduino, ESP8266</li>
+          <li>Python (data & scripting)</li>
+          <li>VLSI design flows (Cadence)</li>
+          <li>MATLAB, Autodesk Inventor</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top:26px">
+      <h2>Contact</h2>
+      <div class="card contact">
+        <p class="meta">Want to work together? Give the details. I respond fast.</p>
+        <form onsubmit="event.preventDefault(); handleSubmit();">
+          <input id="name" placeholder="Your name" required />
+          <input id="email" type="email" placeholder="Email" required />
+          <textarea id="msg" placeholder="Message" rows="4" required></textarea>
+          <div style="display:flex; gap:12px; align-items:center">
+            <button type="submit">Send</button>
+            <a href="#" id="mailto" style="color:var(--muted); text-decoration:none; font-size:13px; margin-left:8px">or email: you@domain.com</a>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <p>Made by Sanjay Kumar Gupta • Built for internships & small teams — <span style="color:var(--muted)">KIET ECE</span></p>
+    </footer>
+  </div>
+
+  <script>
+    // Lightweight contact handler (replace with server/API or Formspree for production)
+    function handleSubmit(){
+      const n=document.getElementById('name').value.trim();
+      const e=document.getElementById('email').value.trim();
+      const m=document.getElementById('msg').value.trim();
+      if(!n||!e||!m){alert('fill all fields');return}
+      // simple local UX: copy a mailto so it opens in user's client
+      const subject=encodeURIComponent('Portfolio contact from '+n);
+      const body=encodeURIComponent('Name: '+n+'\nEmail: '+e+'\n\n'+m);
+      window.location.href = 'mailto:you@domain.com?subject='+subject+'&body='+body;
+    }
+
+    // reveal animations on load
+    document.addEventListener('DOMContentLoaded', ()=>{
+      document.querySelectorAll('.reveal').forEach((el,i)=>{ el.style.animationDelay=(i*80)+'ms' });
+    });
+  </script>
+
+  <!-- Deployment notes (remove before publishing):
+       1) Put this file in a repo root (index.html) and enable GitHub Pages -> main branch.
+       2) Or drag into Netlify / Vercel for instant deploy.
+       3) Replace you@domain.com and add resume.pdf in same folder.
+  -->
+</body>
+</html>
