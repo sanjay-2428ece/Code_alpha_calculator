@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name — Portfolio</title>
+  <meta name="description" content="Personal portfolio showcasing projects, skills, resume and contact." />
+  <style>
+    /* ====== CSS Variables & Base ====== */
+    :root{
+      --bg:#0f1724; --card:#111827; --muted:#94a3b8; --accent:#06b6d4; --glass: rgba(255,255,255,0.03);
+      --radius:14px; --max-w:1100px; --ff:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--ff); margin:0; background:linear-gradient(180deg,#071024 0%, #071328 100%); color:#e6eef6; -webkit-font-smoothing:antialiased}
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+
+    /* ====== Container & Layout ====== */
+    .wrap{max-width:var(--max-w); margin:40px auto; padding:24px}
+    header{display:flex; justify-content:space-between; align-items:center; gap:16px}
+    .logo{font-weight:700; letter-spacing:0.4px}
+    nav{display:flex; gap:12px; align-items:center}
+    .btn{display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:10px; background:var(--glass); backdrop-filter: blur(6px); border:1px solid rgba(255,255,255,0.04)}
+
+    /* ====== Hero ====== */
+    .hero{display:grid; grid-template-columns:1fr 360px; gap:36px; align-items:center; margin:48px 0}
+    .hero-left h1{font-size: clamp(28px, 4vw, 44px); margin:0 0 12px}
+    .lead{color:var(--muted); margin:0 0 20px; font-size:1rem}
+    .cta{display:flex; gap:12px}
+    .primary{background:linear-gradient(90deg,var(--accent), #3b82f6); color:#042; font-weight:700}
+
+    .profile-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:20px; border-radius:16px; border:1px solid rgba(255,255,255,0.04); text-align:center}
+    .avatar{width:120px;height:120px;border-radius:999px;margin:0 auto 12px;object-fit:cover;border:3px solid rgba(255,255,255,0.06)}
+    .meta{color:var(--muted); font-size:0.95rem}
+
+    /* ====== Sections ====== */
+    section{margin:48px 0}
+    .section-title{display:flex; align-items:center; gap:12px}
+    .section-title h2{margin:0}
+    .grid{display:grid; gap:18px}
+
+    /* Projects grid */
+    .projects{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .card{background:var(--card); padding:16px; border-radius:12px; border:1px solid rgba(255,255,255,0.03); box-shadow: 0 6px 20px rgba(2,6,23,0.6); transition:transform .28s ease, box-shadow .28s ease}
+    .card:hover{transform:translateY(-8px); box-shadow:0 20px 40px rgba(2,6,23,0.7)}
+    .tags{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
+    .tag{font-size:12px; color:var(--muted); padding:6px 8px; border-radius:8px; background:rgba(255,255,255,0.02)}
+
+    /* Skills */
+    .skills{display:flex; gap:8px; flex-wrap:wrap}
+    .skill{padding:8px 10px; border-radius:999px; background:rgba(255,255,255,0.02); color:var(--muted); font-weight:600}
+
+    /* Contact */
+    .contact-grid{display:grid; grid-template-columns:1fr 380px; gap:20px}
+    form{display:flex; flex-direction:column; gap:12px}
+    input, textarea{background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.03); padding:10px; border-radius:10px; color:inherit}
+    textarea{min-height:120px; resize:vertical}
+
+    /* Footer */
+    footer{padding:24px 0; color:var(--muted); text-align:center}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .contact-grid{grid-template-columns:1fr}
+      nav{display:none}
+    }
+
+    /* Subtle animations */
+    .reveal{opacity:0; transform:translateY(12px); transition:opacity .6s ease, transform .6s ease}
+    .reveal.visible{opacity:1; transform:none}
+
+    /* small utilities */
+    .muted{color:var(--muted)}
+    .right{justify-self:end}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">YOUR NAME</div>
+      <nav aria-label="Primary navigation">
+        <a class="btn" href="#about">About</a>
+        <a class="btn" href="#projects">Projects</a>
+        <a class="btn" href="#resume">Resume</a>
+        <a class="btn" href="#contact">Contact</a>
+      </nav>
+      <div class="btn" id="menuToggle" aria-hidden="true">☰</div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-left">
+        <h1 class="reveal">Hey — I'm <span style="color:var(--accent)">Your Name</span></h1>
+        <p class="lead reveal">I'm an engineering student who builds stuff — embedded systems, VLSI flow tools, and web projects. I make things that actually run.</p>
+        <div class="cta reveal">
+          <a class="btn primary" href="#projects">See projects →</a>
+          <a class="btn" href="#contact">Let's talk</a>
+        </div>
+
+        <div style="margin-top:22px" class="reveal">
+          <div class="section-title"><h2>Skills</h2></div>
+          <div class="skills" style="margin-top:12px">
+            <div class="skill">C / Data Structures</div>
+            <div class="skill">Python</div>
+            <div class="skill">MATLAB</div>
+            <div class="skill">Cadence / VLSI</div>
+            <div class="skill">Arduino / ESP8266</div>
+            <div class="skill">HTML · CSS · JS</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="profile-card reveal" aria-label="Profile card">
+        <img class="avatar" src="https://placehold.co/240x240/png?text=Avatar" alt="Your avatar">
+        <div style="font-weight:700">Your Name</div>
+        <div class="meta">B.Tech — Electronics & Communication | KIET</div>
+        <div style="margin-top:12px"><a class="btn" href="#resume">Download Resume</a></div>
+      </aside>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="section-title"><h2>About</h2><div class="muted">• short & direct</div></div>
+      <div class="grid" style="margin-top:12px">
+        <p class="reveal">I focus on producing projects that blend hardware and software — microcontrollers, sensors, VLSI tools and small full-stack front-ends. My approach: prototype fast, measure, iterate. Looking for internships or collab on VLSI / embedded / ML tooling.</p>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <div class="section-title"><h2>Projects</h2><div class="muted">• select highlights</div></div>
+      <div class="grid projects" style="margin-top:18px">
+
+        <!-- project card 1 -->
+        <article class="card reveal" tabindex="0">
+          <h3>IoT Smart Dustbin</h3>
+          <p class="muted">ESP8266 | Ultrasonic | Servo | MQTT</p>
+          <p class="muted">Built a smart dustbin that reports fill-level and opens automatically. Live-dashboard & low-power sleep management.</p>
+          <div class="tags">
+            <span class="tag">Embedded</span><span class="tag">MQTT</span><span class="tag">Prototype</span>
+          </div>
+        </article>
+
+        <!-- project card 2 -->
+        <article class="card reveal" tabindex="0">
+          <h3>VLSI Flow Script</h3>
+          <p class="muted">Cadence · TCL · Flow Automation</p>
+          <p class="muted">Automation scripts to standardize RTL -> GDS flow including synthesis constraints, netlist checks and LVS sanity.</p>
+          <div class="tags"><span class="tag">VLSI</span><span class="tag">Automation</span></div>
+        </article>
+
+        <!-- project card 3 -->
+        <article class="card reveal" tabindex="0">
+          <h3>AI Sports Analyzer</h3>
+          <p class="muted">Python | OpenCV | Mobile App</p>
+          <p class="muted">Prototype that extracts player metrics from video and recommends training drills. Focus on pose estimation & performance metrics.</p>
+          <div class="tags"><span class="tag">CV</span><span class="tag">ML</span></div>
+        </article>
+
+        <!-- placeholder card -->
+        <article class="card reveal" tabindex="0">
+          <h3>More projects</h3>
+          <p class="muted">Add links to GitHub repos, demo videos or PDFs. Keep 4–6 highlights on the main page.</p>
+          <div class="tags"><span class="tag">GitHub</span><span class="tag">Demo</span></div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Resume -->
+    <section id="resume">
+      <div class="section-title"><h2>Resume</h2><div class="muted">• quick access</div></div>
+      <div style="margin-top:12px" class="grid">
+        <p class="muted reveal">Attach a PDF of your resume and link it to the download button. Keep the resume concise — 1 page if possible for internships.</p>
+        <div style="margin-top:8px"><a class="btn primary" href="#" download="YourName_Resume.pdf">Download Resume (placeholder)</a></div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="section-title"><h2>Contact</h2><div class="muted">• no fluff</div></div>
+      <div class="contact-grid" style="margin-top:12px">
+        <div>
+          <p class="muted reveal">Want to collaborate, intern or hire? Drop a message — I reply fast to real opportunities.</p>
+          <div style="margin-top:12px">
+            <strong>Email</strong>
+            <div class="muted">youremail@example.com</div>
+            <strong style="margin-top:8px; display:block">Location</strong>
+            <div class="muted">Ghaziabad, India</div>
+          </div>
+        </div>
+        <aside>
+          <form action="https://formspree.io/f/your-form-id" method="POST">
+            <input name="name" placeholder="Your name" required />
+            <input name="email" type="email" placeholder="you@domain.com" required />
+            <textarea name="message" placeholder="Short message" required></textarea>
+            <div style="display:flex; gap:8px">
+              <button class="btn primary" type="submit">Send</button>
+              <a class="btn" href="mailto:youremail@example.com">Email directly</a>
+            </div>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <footer>
+      <div class="muted">© <span id="year"></span> Your Name — Built with raw code and caffeine.</div>
+    </footer>
+  </div>
+
+  <script>
+    // Small utilities: mobile menu toggle + scrollspy + reveal on scroll
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu -- simple toggle to show nav links as a temporary dropdown
+    const menu = document.getElementById('menuToggle');
+    menu.addEventListener('click', ()=>{
+      const nav = document.querySelector('nav');
+      if(window.innerWidth <= 900){
+        nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        nav.style.flexDirection = 'column';
+        nav.style.position = 'absolute';
+        nav.style.right = '24px';
+        nav.style.top = '70px';
+        nav.style.background = 'linear-gradient(180deg, rgba(15,23,36,0.95), rgba(7,10,24,0.95))';
+        nav.style.padding = '12px';
+        nav.style.borderRadius = '12px';
+      }
+    });
+
+    // Reveal on scroll
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, {threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+    // Simple scrollspy to highlight nav (adds .active class) — keeps it minimal
+    const sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', ()=>{
+      const y = window.scrollY + 80;
+      sections.forEach(sec=>{
+        const top = sec.offsetTop;
+        const h = sec.offsetHeight;
+        const id = sec.id;
+        const link = document.querySelector(`nav a[href='#${id}']`);
+        if(!link) return;
+        if(y >= top && y < top + h){
+          link.style.border = '1px solid rgba(255,255,255,0.06)';
+        } else {
+          link.style.border = 'none';
+        }
+      })
+    });
+  </script>
+
+  
+</body>
+</html>
